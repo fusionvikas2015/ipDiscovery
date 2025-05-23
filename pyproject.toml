@@ -15,4 +15,4 @@ requires-python = ">=3.7"
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/yourusername/ipDiscovery"
+Homepage = "https://github.com/fusionvikas2015/ipDiscovery.git"
