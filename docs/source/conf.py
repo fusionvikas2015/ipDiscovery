@@ -6,6 +6,8 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+import sphinx_rtd_theme
+
 project = 'ipDiscovery'
 copyright = '2025, Vikas Kumar'
 author = 'Vikas Kumar'
@@ -26,5 +28,14 @@ exclude_patterns = []
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'alabaster'
+# html_theme = 'alabaster'
+html_theme = "sphinx_rtd_theme"
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+html_theme_options = {
+    "collapse_navigation": False,
+    "sticky_navigation": True,
+    "navigation_depth": 3,
+}
+
+
 html_static_path = ['_static']
