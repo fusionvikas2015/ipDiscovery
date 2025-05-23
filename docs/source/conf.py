@@ -31,11 +31,19 @@ exclude_patterns = []
 # html_theme = 'alabaster'
 html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+
 # html_theme_options = {
 #     "collapse_navigation": False,
 #     "sticky_navigation": True,
 #     "navigation_depth": 2,
 # }
 
+html_context = {
+    "display_github": True,  # Integrates GitHub link
+    "github_user": "fusionvikas2015",
+    "github_repo": "ipDiscovery",
+    "github_version": "main",  # or the appropriate branch
+    "conf_py_path": "/docs/",  # path in the repo to your docs root
+}
 
 html_static_path = ['_static']

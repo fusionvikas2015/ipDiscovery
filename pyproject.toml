@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ipDiscovery"
-version = "1.1"
-description = "A library designed to retrieve the operating system's IP address after deployment using its MAC address"
+version = "1.0.3"
+description = "ipDiscovery is an open-source Python library designed to enhance automation workflows across a wide range of operating systems, including RHEL, SLES, Ubuntu, VMware, Windows, Oracle, and more.By enabling fully automated post-deployment IP discovery."
 authors = [
     { name = "Vikas Kumar", email = "fusionvikas.py@gmail.com" }
 ]

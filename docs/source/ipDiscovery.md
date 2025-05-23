@@ -1,7 +1,7 @@
-# ipDiscovery v1.0
+# ipDiscovery
 
-This is an open source python library solves the above critical problem of retrieving OS-assigned IP addresses during 
-automated deployment workflows—without relying on manual steps or external agents like HPE AMS, etc.
+ipDiscovery is an open-source Python library designed to enhance automation workflows across a wide range of operating systems, including RHEL, SLES, Ubuntu, VMware, Windows, Oracle, and more.
+By enabling fully automated post-deployment IP discovery.
 
 ## Key Benefits of the `ipDiscovery` Library
 

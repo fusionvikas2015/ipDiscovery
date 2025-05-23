@@ -1,0 +1,13 @@
+*.tmp
+*.bak
+*.log
+*.cachefile
+*.Cache
+*.pyc
+*.idea
+
+
+dist/
+[Ii]pDiscovery.egg-info/
+
+venv/
