@@ -1,5 +1,5 @@
 # .readthedocs.yaml
-# Required configuration file for Read the Docs
+# Read the Docs configuration file
 
 version: 2
 
@@ -10,10 +10,7 @@ build:
 
 python:
   install:
-    - method: pip
-      requirements: docs/requirements.txt  # Or use environment.yml
-      extra_requirements:
-        - docs
+    - requirements: docs/requirements.txt
 
 sphinx:
   configuration: docs/source/conf.py
