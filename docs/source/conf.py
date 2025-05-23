@@ -48,4 +48,6 @@ html_context = {
 
 html_static_path = ['_static']
 
-html_show_sourcelink = False
+html_css_files = [
+    'custom.css',
+]
