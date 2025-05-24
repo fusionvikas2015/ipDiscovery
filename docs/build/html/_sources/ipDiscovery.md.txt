@@ -1,8 +1,11 @@
-# ipDiscovery
+# 🛡️ ipDiscovery
 
 ipDiscovery is an open-source Python library designed to enhance automation workflows across a wide range of operating
-systems, including RHEL, SLES, Ubuntu, VMware, Windows, Oracle, and more.
-By enabling fully automated post-deployment IP discovery.
+systems, including RHEL, SLES, Ubuntu, VMware, Windows, Oracle, etc by enabling fully automated post-deployment IP
+discovery.
+
+It is a secure, cross-platform tool for retrieving IP addresses from MAC addresses using local ARP or remote
+DHCP servers. It supports automated environments with built-in encryption `(AES-256-GCM)`
 
 ## Key Benefits of the `ipDiscovery` Library
 
@@ -10,7 +13,7 @@ By enabling fully automated post-deployment IP discovery.
   Automatically retrieves OS-assigned IP addresses during deployment workflows, eliminating the need for manual steps.
 
 
-- **No Dependency on External Agents**  
+- **No Dependency on External Agents**a  
   Works without requiring external agents like **HPE AMS** — truly agentless.
 
 
@@ -32,13 +35,6 @@ By enabling fully automated post-deployment IP discovery.
 
 - **Transforms Manual to Automated Workflows**  
   Converts traditionally manual processes into fully automated, high-performance solutions.
-
-# 🛡️ ip-discovery
-
-`ip-discovery` is a secure, cross-platform tool for retrieving IP addresses from MAC addresses using local ARP or remote
-DHCP servers. It supports automated environments with built-in encryption (AES-256-GCM).
-
----
 
 ## 📁 1. Configuration & Initialization
 
