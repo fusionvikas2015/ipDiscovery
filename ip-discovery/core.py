@@ -143,7 +143,6 @@ def _query_windows_dhcp(mac: str, server: Dict, key: bytes) -> Optional[str]:
 
 
 def get_host_ip(mac_addresses: List[str], password: str) -> Dict[str, str]:
-    print("-------------------------------")
     key = derive_key(password)
     if not os.path.exists(CONFIG_FILE):
         return {mac: 'config missing' for mac in mac_addresses}
@@ -169,40 +168,41 @@ def get_host_ip(mac_addresses: List[str], password: str) -> Dict[str, str]:
             results[mac] = 'not found'
     return results
 
-# if __name__ == "__main__":
-#     # Store DHCP server info securely
-#     servers = [
-#         {
-#             "id": "dhcp-linux",
-#             "ip": "192.168.1.100",
-#             "type": "linux",
-#             "username": "admin",
-#             "password": "linuxpass"
-#         },
-#         {
-#             "id": "dhcp-win",
-#             "ip": "192.168.1.101",
-#             "type": "windows",
-#             "username": "Administrator",
-#             "password": "Win@12345"
-#         }
-#     ]
-#
-#     config_password = "StrongMasterKey!"
-#     configure_dhcp_servers(servers, config_password)
-#
-#     servers = list_dhcp_servers(config_password)
-#     for s in servers:
-#         print(s)
-#
-#     success = remove_dhcp_server("dhcp-linux")
-#     print("Removed:", success)
-#
-#     servers = list_dhcp_servers(config_password)
-#     for s in servers:
-#         print(s)
-#
-#     # Try to resolve MACs
-#     macs_to_lookup = ["00:11:22:33:44:55", "AA:BB:CC:DD:EE:FF"]
-#     results = get_host_ip(macs_to_lookup, config_password)
-#     print(json.dumps(results, indent=4))
+
+if __name__ == "__main__":
+    # Store DHCP server info securely
+    servers = [
+        {
+            "id": "dhcp-linux",
+            "ip": "192.168.1.100",
+            "type": "linux",
+            "username": "admin",
+            "password": "linuxpass"
+        },
+        {
+            "id": "dhcp-win",
+            "ip": "192.168.1.101",
+            "type": "windows",
+            "username": "Administrator",
+            "password": "Win@12345"
+        }
+    ]
+
+    config_password = "StrongMasterKey!"
+    configure_dhcp_servers(servers, config_password)
+
+    servers = list_dhcp_servers(config_password)
+    for s in servers:
+        print(s)
+
+    success = remove_dhcp_server("dhcp-linux")
+    print("Removed:", success)
+
+    servers = list_dhcp_servers(config_password)
+    for s in servers:
+        print(s)
+
+    # Try to resolve MACs
+    macs_to_lookup = ["00:11:22:33:44:55", "AA:BB:CC:DD:EE:FF"]
+    results = get_host_ip(macs_to_lookup, config_password)
+    print(json.dumps(results, indent=4))
