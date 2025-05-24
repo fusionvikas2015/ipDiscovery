@@ -8,7 +8,7 @@
 
 import sphinx_rtd_theme
 
-project = 'ip-discovery'
+project = 'ipDiscovery'
 copyright = '2025, Vikas, Pritish, Akshita'
 author = 'Vikas Kumar'
 release = 'v1.1'
