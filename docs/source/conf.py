@@ -8,7 +8,7 @@
 
 import sphinx_rtd_theme
 
-project = 'ipDiscovery'
+project = 'ip-discovery'
 copyright = '2025, Vikas Kumar'
 author = 'Vikas Kumar'
 release = 'v1.1'
@@ -41,13 +41,11 @@ html_theme = "sphinx_rtd_theme"
 html_context = {
     "display_github": True,  # Integrates GitHub link
     "github_user": "fusionvikas2015",
-    "github_repo": "ipDiscovery",
+    "github_repo": "ip-discovery",
     "github_version": "main",  # or the appropriate branch
     "conf_py_path": "/docs/",  # path in the repo to your docs root
 }
 
 html_static_path = ['_static']
 
-html_css_files = [
-    'custom.css',
-]
+

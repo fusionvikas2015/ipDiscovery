@@ -1,0 +1,4 @@
+/* Hide only the 'Built with Sphinx...' line in the footer */
+div[role="contentinfo"] p:last-child {
+    display: none;
+}
