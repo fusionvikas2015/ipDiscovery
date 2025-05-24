@@ -6,10 +6,9 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ipDiscovery &mdash; ipDiscovery v1.1 documentation</title>
+  <title>ipDiscovery &mdash; ip-discovery v1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=3c5c3afc" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -32,7 +31,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            ipDiscovery
+            ip-discovery
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -49,6 +48,28 @@
 <li class="toctree-l2"><a class="reference internal" href="#key-benefits-of-the-ipdiscovery-library">Key Benefits of the <code class="docutils literal notranslate"><span class="pre">ipDiscovery</span></code> Library</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="#ip-discovery">🛡️ ip-discovery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-initialization">📁 1. Configuration &amp; Initialization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configure-dhcp-servers-servers-list-dict"><code class="docutils literal notranslate"><span class="pre">configure_dhcp_servers(servers:</span> <span class="pre">List[Dict])</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-dhcp-servers-list-dict"><code class="docutils literal notranslate"><span class="pre">list_dhcp_servers()</span> <span class="pre">-&gt;</span> <span class="pre">List[Dict]</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remove-dhcp-server-server-id-str"><code class="docutils literal notranslate"><span class="pre">remove_dhcp_server(server_id:</span> <span class="pre">str)</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ip-retrieval-workflow">🌐 2. IP Retrieval Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#get-host-ip-mac-addresses-list-str-dict-str-str"><code class="docutils literal notranslate"><span class="pre">get_host_ip(mac_addresses:</span> <span class="pre">List[str])</span> <span class="pre">-&gt;</span> <span class="pre">Dict[str,</span> <span class="pre">str]</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-arp-cache-mac-str-optional-str"><code class="docutils literal notranslate"><span class="pre">_check_arp_cache(mac:</span> <span class="pre">str)</span> <span class="pre">-&gt;</span> <span class="pre">Optional[str]</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#query-linux-dhcp-mac-str-server-dict-optional-str"><code class="docutils literal notranslate"><span class="pre">_query_linux_dhcp(mac:</span> <span class="pre">str,</span> <span class="pre">server:</span> <span class="pre">Dict)</span> <span class="pre">-&gt;</span> <span class="pre">Optional[str]</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#query-windows-dhcp-mac-str-server-dict-optional-str"><code class="docutils literal notranslate"><span class="pre">_query_windows_dhcp(mac:</span> <span class="pre">str,</span> <span class="pre">server:</span> <span class="pre">Dict)</span> <span class="pre">-&gt;</span> <span class="pre">Optional[str]</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#security-functions">🔐 3. Security Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#encrypt-data-data-str-str"><code class="docutils literal notranslate"><span class="pre">encrypt_data(data:</span> <span class="pre">str)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decrypt-data-encrypted-str-str"><code class="docutils literal notranslate"><span class="pre">decrypt_data(encrypted:</span> <span class="pre">str)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#flow-secured-by-aes-256-gcm">💡 Flow Secured By: <strong>AES-256-GCM</strong></a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -57,7 +78,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">ipDiscovery</a>
+          <a href="index.html">ip-discovery</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -67,7 +88,7 @@
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">ipDiscovery</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/fusionvikas2015/ipDiscovery/blob/main/docs/ipDiscovery.md" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/fusionvikas2015/ip-discovery/blob/main/docs/ipDiscovery.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -77,7 +98,8 @@
              
   <section id="ipdiscovery">
 <h1>ipDiscovery<a class="headerlink" href="#ipdiscovery" title="Link to this heading"></a></h1>
-<p>ipDiscovery is an open-source Python library designed to enhance automation workflows across a wide range of operating systems, including RHEL, SLES, Ubuntu, VMware, Windows, Oracle, and more.
+<p>ipDiscovery is an open-source Python library designed to enhance automation workflows across a wide range of operating
+systems, including RHEL, SLES, Ubuntu, VMware, Windows, Oracle, and more.
 By enabling fully automated post-deployment IP discovery.</p>
 <section id="key-benefits-of-the-ipdiscovery-library">
 <h2>Key Benefits of the <code class="docutils literal notranslate"><span class="pre">ipDiscovery</span></code> Library<a class="headerlink" href="#key-benefits-of-the-ipdiscovery-library" title="Link to this heading"></a></h2>
@@ -97,6 +119,93 @@ Features secure data handling and is easy to integrate into CI/CD or automation 
 <li><p><strong>Transforms Manual to Automated Workflows</strong><br />
 Converts traditionally manual processes into fully automated, high-performance solutions.</p></li>
 </ul>
+</section>
+</section>
+<section id="ip-discovery">
+<h1>🛡️ ip-discovery<a class="headerlink" href="#ip-discovery" title="Link to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">ip-discovery</span></code> is a secure, cross-platform tool for retrieving IP addresses from MAC addresses using local ARP or remote
+DHCP servers. It supports automated environments with built-in encryption (AES-256-GCM).</p>
+<hr class="docutils" />
+<section id="configuration-initialization">
+<h2>📁 1. Configuration &amp; Initialization<a class="headerlink" href="#configuration-initialization" title="Link to this heading"></a></h2>
+<section id="configure-dhcp-servers-servers-list-dict">
+<h3><code class="docutils literal notranslate"><span class="pre">configure_dhcp_servers(servers:</span> <span class="pre">List[Dict])</span></code><a class="headerlink" href="#configure-dhcp-servers-servers-list-dict" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>One-time setup to register Linux/Windows DHCP servers.</p></li>
+<li><p>Credentials are <strong>securely encrypted</strong> using AES-256-GCM.</p></li>
+</ul>
+</section>
+<section id="list-dhcp-servers-list-dict">
+<h3><code class="docutils literal notranslate"><span class="pre">list_dhcp_servers()</span> <span class="pre">-&gt;</span> <span class="pre">List[Dict]</span></code><a class="headerlink" href="#list-dhcp-servers-list-dict" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Returns a list of registered DHCP servers.</p></li>
+<li><p>Sensitive data (like credentials) is <strong>masked</strong> in the output.</p></li>
+</ul>
+</section>
+<section id="remove-dhcp-server-server-id-str">
+<h3><code class="docutils literal notranslate"><span class="pre">remove_dhcp_server(server_id:</span> <span class="pre">str)</span></code><a class="headerlink" href="#remove-dhcp-server-server-id-str" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Removes a DHCP server configuration by its ID or IP address.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="ip-retrieval-workflow">
+<h2>🌐 2. IP Retrieval Workflow<a class="headerlink" href="#ip-retrieval-workflow" title="Link to this heading"></a></h2>
+<section id="get-host-ip-mac-addresses-list-str-dict-str-str">
+<h3><code class="docutils literal notranslate"><span class="pre">get_host_ip(mac_addresses:</span> <span class="pre">List[str])</span> <span class="pre">-&gt;</span> <span class="pre">Dict[str,</span> <span class="pre">str]</span></code><a class="headerlink" href="#get-host-ip-mac-addresses-list-str-dict-str-str" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Attempts to resolve MAC addresses via:</p>
+<ol class="arabic simple">
+<li><p>Local ARP cache.</p></li>
+<li><p>Remote DHCP servers (fallback).</p></li>
+</ol>
+</li>
+<li><p>Returns a dictionary of <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">mac:</span> <span class="pre">ip</span> <span class="pre">}</span></code> or <code class="docutils literal notranslate"><span class="pre">'not</span> <span class="pre">found'</span></code>.</p></li>
+</ul>
+</section>
+<section id="check-arp-cache-mac-str-optional-str">
+<h3><code class="docutils literal notranslate"><span class="pre">_check_arp_cache(mac:</span> <span class="pre">str)</span> <span class="pre">-&gt;</span> <span class="pre">Optional[str]</span></code><a class="headerlink" href="#check-arp-cache-mac-str-optional-str" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Internal helper to parse the local ARP table for IP resolution.</p></li>
+</ul>
+</section>
+<section id="query-linux-dhcp-mac-str-server-dict-optional-str">
+<h3><code class="docutils literal notranslate"><span class="pre">_query_linux_dhcp(mac:</span> <span class="pre">str,</span> <span class="pre">server:</span> <span class="pre">Dict)</span> <span class="pre">-&gt;</span> <span class="pre">Optional[str]</span></code><a class="headerlink" href="#query-linux-dhcp-mac-str-server-dict-optional-str" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>SSH into Linux DHCP server.</p></li>
+<li><p>Parses <code class="docutils literal notranslate"><span class="pre">dhcpd.leases</span></code> or inspects the ARP table.</p></li>
+</ul>
+</section>
+<section id="query-windows-dhcp-mac-str-server-dict-optional-str">
+<h3><code class="docutils literal notranslate"><span class="pre">_query_windows_dhcp(mac:</span> <span class="pre">str,</span> <span class="pre">server:</span> <span class="pre">Dict)</span> <span class="pre">-&gt;</span> <span class="pre">Optional[str]</span></code><a class="headerlink" href="#query-windows-dhcp-mac-str-server-dict-optional-str" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>SSH into Windows server.</p></li>
+<li><p>Executes PowerShell <code class="docutils literal notranslate"><span class="pre">Get-DhcpServerv4Lease</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="security-functions">
+<h2>🔐 3. Security Functions<a class="headerlink" href="#security-functions" title="Link to this heading"></a></h2>
+<section id="encrypt-data-data-str-str">
+<h3><code class="docutils literal notranslate"><span class="pre">encrypt_data(data:</span> <span class="pre">str)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><a class="headerlink" href="#encrypt-data-data-str-str" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Internally used to encrypt data using <strong>AES-256-GCM</strong>.</p></li>
+</ul>
+</section>
+<section id="decrypt-data-encrypted-str-str">
+<h3><code class="docutils literal notranslate"><span class="pre">decrypt_data(encrypted:</span> <span class="pre">str)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><a class="headerlink" href="#decrypt-data-encrypted-str-str" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Secure in-memory decryption of data.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="flow-secured-by-aes-256-gcm">
+<h2>💡 Flow Secured By: <strong>AES-256-GCM</strong><a class="headerlink" href="#flow-secured-by-aes-256-gcm" title="Link to this heading"></a></h2>
+<p>Every sensitive operation, including credentials and lease data, is protected using <strong>AES-256-GCM</strong>, ensuring
+confidentiality, integrity, and authenticity.</p>
 </section>
 </section>
 
@@ -127,14 +236,7 @@ Converts traditionally manual processes into fully automated, high-performance s
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-<div class="footer">
-  <hr>
-  <p style="text-align: center;">
-    © 2025 ipDiscovery • <a href="https://github.com/fusionvikas2015/ipDiscovery" target="_blank">View on GitHub</a>
-  </p>
-</div>
-
+  </script> 
 
 </body>
 </html>
