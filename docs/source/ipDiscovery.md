@@ -1,4 +1,4 @@
-# 🛡️ ip-discovery
+# 🛡️ ipDiscovery
 
 ipDiscovery is an open-source Python library designed to enhance automation workflows across a wide range of operating
 systems, including RHEL, SLES, Ubuntu, VMware, Windows, Oracle, etc by enabling fully automated post-deployment IP
@@ -13,7 +13,7 @@ DHCP servers. It supports automated environments with built-in encryption `(AES-
   Automatically retrieves OS-assigned IP addresses during deployment workflows, eliminating the need for manual steps.
 
 
-- **No Dependency on External Agents**  
+- **No Dependency on External Agents**a  
   Works without requiring external agents like **HPE AMS** — truly agentless.
 
 
